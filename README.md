@@ -1,87 +1,94 @@
-<form method="post" action="//submit.form" onSubmit="return validateForm();">
-<div style="max-width: 400px;">
-</div>
-<div style="padding-bottom: 18px;font-size : 24px;">Hotel Reservation</div>
-<div style="display: flex; padding-bottom: 18px;max-width : 450px;">
-<div style=" margin-left: 0; margin-right: 1%; width: 49%;">First name<span style="color: red;"> *</span><br/>
-<input type="text" id="data_2" name="data_2" style="max-width: 100%;" class="form-control"/>
-</div>
-<div style=" margin-left: 1%; margin-right: 0; width: 49%;">Last name<span style="color: red;"> *</span><br/>
-<input type="text" id="data_3" name="data_3" style="max-width: 100%;" class="form-control"/>
-</div>
-</div><div style="padding-bottom: 18px;">Phone<span style="color: red;"> *</span><br/>
-<input type="text" id="data_4" name="data_4" style="max-width : 450px;" class="form-control"/>
-</div>
-<div style="padding-bottom: 18px;">Email<span style="color: red;"> *</span><br/>
-<input type="text" id="data_5" name="data_5" style="max-width : 450px;" class="form-control"/>
-</div>
-<div style="padding-bottom: 18px;">Arrival date<span style="color: red;"> *</span><br/>
-<input type="text" id="data_6" name="data_6" style="max-width : 250px;" class="form-control"/>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/pikaday.min.js" type="text/javascript"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/css/pikaday.min.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript">new Pikaday({ field: document.getElementById('data_6') });</script>
-<div style="padding-bottom: 18px;">Departure date<span style="color: red;"> *</span><br/>
-<input type="text" id="data_7" name="data_7" style="max-width : 250px;" class="form-control"/>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/pikaday.min.js" type="text/javascript"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/css/pikaday.min.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript">new Pikaday({ field: document.getElementById('data_7') });</script>
-<div style="padding-bottom: 18px;">Number of adults<span style="color: red;"> *</span><br/>
-<input type="number" id="data_8" name="data_8" style="max-width : 250px;" class="form-control"/>
-</div>
-<div style="padding-bottom: 18px;">Number of children<br/>
-<input type="number" id="data_9" name="data_9" style="max-width : 250px;" class="form-control"/>
-</div>
-<div style="padding-bottom: 18px;">Questions / Comments<br/>
-<textarea id="data_10" false name="data_10" style="max-width : 450px;" rows="6" class="form-control"></textarea>
-</div>
-<div style="padding-bottom: 18px;"><input name="skip_Submit" value="Submit" type="submit"/></div>
-<div>
-<div style="float:right"><a href="https://www.100forms.com" id="lnk100" title="form to email">form to email</a></div>
-<script src="https://www.100forms.com/js/FORMKEY:HCJRQ6RXMACD/SEND:my@email.com" type="text/javascript"></script>
-</div>
-</form>
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title> Hotel Reservation Form </title>
 
-<script type="text/javascript">
-function validateForm() {
-if (isEmpty(document.getElementById('data_2').value.trim())) {
-alert('First name is required!');
-return false;
-}
-if (isEmpty(document.getElementById('data_3').value.trim())) {
-alert('Last name is required!');
-return false;
-}
-if (isEmpty(document.getElementById('data_4').value.trim())) {
-alert('Phone is required!');
-return false;
-}
-if (isEmpty(document.getElementById('data_5').value.trim())) {
-alert('Email is required!');
-return false;
-}
-if (!validateEmail(document.getElementById('data_5').value.trim())) {
-alert('Email must be a valid email address!');
-return false;
-}
-if (isEmpty(document.getElementById('data_6').value.trim())) {
-alert('Arrival date is required!');
-return false;
-}
-if (isEmpty(document.getElementById('data_7').value.trim())) {
-alert('Departure date is required!');
-return false;
-}
-if (isEmpty(document.getElementById('data_8').value.trim())) {
-alert('Number of adults is required!');
-return false;
-}
-return true;
-}
-function isEmpty(str) { return (str.length === 0 || !str.trim()); }
-function validateEmail(email) {
-var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,15}(?:\.[a-z]{2})?)$/i;
-return isEmpty(email) || re.test(email);
-}
-</script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="custom.css" rel="stylesheet" type="text/css">
+
+    <script>
+        function finalCost(){
+            var roomType = document.getElementById("room_type").value;
+            var roomNum = document.getElementById("room_number").value;
+            var personNum = document.getElementById("person_number").value;
+            var childNum = document.getElementById("child_number").value;
+            var resFacilities = document.getElementById("res_facilities").value;
+
+            var total = (parseInt(roomType)*10) + ((roomNum)*2) + ((personNum)*3) + ((childNum)*2) + ((resFacilities)*5)
+
+            document.getElementById("result").innerHTML = total;
+        }
+    </script>
+
+
+</head>
+<body>
+     <div class="hotel_reserve_box">
+         <h3> Hotel Reservation Form </h3><br>
+         <form>
+             <div class="form-group">
+               <label>Room/Suite Type</label>
+                 <select class="form-control" id="room_type" onchange="finalCost()">
+                     <option value="0" selected>Select Room/Suite </option>
+                     <option value="1"> Standard </option>
+                     <option value="2"> Deluxe </option>
+                     <option value="3"> Superior Deluxe </option>
+                     <option value="4"> Premier Deluxe  </option>
+                     <option value="5"> Executive Suite </option>
+                     <option value="6"> Junior Suite </option>
+                     <option value="7"> Honeymoon Suite </option>
+                 </select>
+             </div>
+             <div class="form-group">
+                 <label>Number of room/suite</label>
+                 <select class="form-control" id="room_number" onchange="finalCost()">
+                     <option value="0"> 0 </option>
+                     <option value="1"> 1 </option>
+                     <option value="2"> 2 </option>
+                     <option value="3"> 3 </option>
+                     <option value="4"> 4 </option>
+                     <option value="5"> 5 </option>
+                     <option value="6"> 6 </option>
+                     <option value="7"> 7 </option>
+                 </select>
+             </div>
+             <div class="form-group">
+                 <label>Number of persons</label>
+                 <select class="form-control" id="person_number" onchange="finalCost()">
+                     <option value="0"> 0 </option>
+                     <option value="1"> 1 </option>
+                     <option value="2"> 2 </option>
+                     <option value="3"> 3 </option>
+                     <option value="4"> 4 </option>
+                     <option value="5"> 5 </option>
+                     <option value="6"> 6 </option>
+                     <option value="7"> 7 </option>
+                 </select>
+             </div>
+             <div clason value="1"> 1 </option>
+                     <option value="2"> 2 </option>
+                     <option value="3"> 3 </option>
+                     <option value="4"> 4 </option>
+                     <option value="5"> 5 </option>
+                     <option value="6"> 6 </option>
+                     <option value="7"> 7 </option>
+                 </select>
+             </div>
+             <div class="form-group">
+                 <label>Restaurant facilities?</label>
+                 <select class="form-control" id="res_facilities" onchange="finalCost()">
+                     <option value="0" selected> Do you want restaurant facilities? </option>
+                     <option value="2"> Yes </option>
+                     <option value="0"> No </option>
+                 </select>
+             </div><br>
+             <div class="form-group">
+                 <label>Total Cost ($) : </label>
+                 <span id="result" style="background-color: #7527b0;color: #fff;padding: 6px 70px;font-weight: 600;font-size: 18px; margin-left: 10px;border-radius: 5px;">0</span>
+             </div>
+         </form>
+     </div>
+
+</body>
+</html>
