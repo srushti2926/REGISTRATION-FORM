@@ -1,94 +1,66 @@
-<!DOCTYPE html>
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title> Hotel Reservation Form </title>
-
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="custom.css" rel="stylesheet" type="text/css">
-
-    <script>
-        function finalCost(){
-            var roomType = document.getElementById("room_type").value;
-            var roomNum = document.getElementById("room_number").value;
-            var personNum = document.getElementById("person_number").value;
-            var childNum = document.getElementById("child_number").value;
-            var resFacilities = document.getElementById("res_facilities").value;
-
-            var total = (parseInt(roomType)*10) + ((roomNum)*2) + ((personNum)*3) + ((childNum)*2) + ((resFacilities)*5)
-
-            document.getElementById("result").innerHTML = total;
-        }
-    </script>
-
-
-</head>
-<body>
-     <div class="hotel_reserve_box">
-         <h3> Hotel Reservation Form </h3><br>
-         <form>
-             <div class="form-group">
-               <label>Room/Suite Type</label>
-                 <select class="form-control" id="room_type" onchange="finalCost()">
-                     <option value="0" selected>Select Room/Suite </option>
-                     <option value="1"> Standard </option>
-                     <option value="2"> Deluxe </option>
-                     <option value="3"> Superior Deluxe </option>
-                     <option value="4"> Premier Deluxe  </option>
-                     <option value="5"> Executive Suite </option>
-                     <option value="6"> Junior Suite </option>
-                     <option value="7"> Honeymoon Suite </option>
-                 </select>
-             </div>
-             <div class="form-group">
-                 <label>Number of room/suite</label>
-                 <select class="form-control" id="room_number" onchange="finalCost()">
-                     <option value="0"> 0 </option>
-                     <option value="1"> 1 </option>
-                     <option value="2"> 2 </option>
-                     <option value="3"> 3 </option>
-                     <option value="4"> 4 </option>
-                     <option value="5"> 5 </option>
-                     <option value="6"> 6 </option>
-                     <option value="7"> 7 </option>
-                 </select>
-             </div>
-             <div class="form-group">
-                 <label>Number of persons</label>
-                 <select class="form-control" id="person_number" onchange="finalCost()">
-                     <option value="0"> 0 </option>
-                     <option value="1"> 1 </option>
-                     <option value="2"> 2 </option>
-                     <option value="3"> 3 </option>
-                     <option value="4"> 4 </option>
-                     <option value="5"> 5 </option>
-                     <option value="6"> 6 </option>
-                     <option value="7"> 7 </option>
-                 </select>
-             </div>
-             <div clason value="1"> 1 </option>
-                     <option value="2"> 2 </option>
-                     <option value="3"> 3 </option>
-                     <option value="4"> 4 </option>
-                     <option value="5"> 5 </option>
-                     <option value="6"> 6 </option>
-                     <option value="7"> 7 </option>
-                 </select>
-             </div>
-             <div class="form-group">
-                 <label>Restaurant facilities?</label>
-                 <select class="form-control" id="res_facilities" onchange="finalCost()">
-                     <option value="0" selected> Do you want restaurant facilities? </option>
-                     <option value="2"> Yes </option>
-                     <option value="0"> No </option>
-                 </select>
-             </div><br>
-             <div class="form-group">
-                 <label>Total Cost ($) : </label>
-                 <span id="result" style="background-color: #7527b0;color: #fff;padding: 6px 70px;font-weight: 600;font-size: 18px; margin-left: 10px;border-radius: 5px;">0</span>
-             </div>
-         </form>
-     </div>
-
-</body>
-</html>
+<div class="student-profile py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card shadow-sm">
+          <div class="card-header bg-transparent text-center">
+            <img class="profile_img" src="https://source.unsplash.com/600x300/?student" alt="student dp">
+            <h3>Ishmam Ahasan Samin</h3>
+          </div>
+          <div class="card-body">
+            <p class="mb-0"><strong class="pr-1">Student ID:</strong>321000001</p>
+            <p class="mb-0"><strong class="pr-1">Class:</strong>4</p>
+            <p class="mb-0"><strong class="pr-1">Section:</strong>A</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card shadow-sm">
+          <div class="card-header bg-transparent border-0">
+            <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
+          </div>
+          <div class="card-body pt-0">
+            <table class="table table-bordered">
+              <tr>
+                <th width="30%">Roll</th>
+                   <td width="2%">:</td>
+                <td>125</td>
+              </tr>
+              <tr>
+                <th width="30%">Academic Year	</th>
+                <td width="2%">:</td>
+                <td>2020</td>
+              </tr>
+              <tr>
+                <th width="30%">Gender</th>
+                <td width="2%">:</td>
+                <td>Male</td>
+              </tr>
+              <tr>
+                <th width="30%">Religion</th>
+                <td width="2%">:</td>
+                <td>Group</td>
+              </tr>
+              <tr>
+                <th width="30%">blood</th>
+                <td width="2%">:</td>
+                <td>B+</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+          <div style="height: 26px"></div>
+        <div class="card shadow-sm">
+          <div class="card-header bg-transparent border-0">
+            <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Other Information</h3>
+          </div>
+          <div class="card-body pt-0">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    </html>
