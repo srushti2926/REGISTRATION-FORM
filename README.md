@@ -8,6 +8,19 @@
 <table cellpadding="2" width="20%" bgcolor="99FFFF" align="center"
 cellspacing="2">
 
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F1HFWDV4L2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-F1HFWDV4L2');
+</script>
+  
+  
+  
+  
 <tr>
 <td colspan=2>
 <center><font size=4><b>Student Registration Form</b></font></center>
@@ -94,6 +107,7 @@ id="personaladdress" size="30"></td>
 <td>EmailId</td>
 <td><input type="text" name="emailid" id="emailid" size="30"></td>
 </tr>
+
 
 <tr>
 <td>DOB</td>
